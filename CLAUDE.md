@@ -72,9 +72,50 @@ See `IMPLEMENTATION_PLAN.md` for detailed 14-week development roadmap covering:
 6. Performance & Analytics (Weeks 11-12)
 7. Integration & Polish (Weeks 13-14)
 
+## Security Guidelines
+
+**Authentication & Authorization:**
+- Implement OAuth 2.0/OIDC with JWT tokens (15-minute expiration)
+- Role-based access control (admin/editor/viewer)
+- Multi-factor authentication for admin functions
+- Secure session management with HTTP-only cookies
+
+**Input Validation & XSS Prevention:**
+- All user inputs sanitized with DOMPurify
+- Joi schema validation for API endpoints
+- Content Security Policy headers
+- Parameterized database queries to prevent SQL injection
+
+**Data Protection:**
+- AES-256 encryption for sensitive data at rest
+- TLS 1.3 for all API communications
+- GDPR/CCPA compliance with data retention policies
+- Key rotation and secure secret management
+
+**API Security:**
+- Rate limiting (1000 requests/15 minutes standard, 100 for sensitive operations)
+- Strict CORS policy with explicit origin allowlist
+- Security headers (Helmet.js configuration)
+- Request logging and anomaly detection
+
+## Development Commands
+
+When implementing, always run security checks:
+```bash
+# Security linting
+npm run lint:security
+
+# Dependency vulnerability scan
+npm audit
+
+# Type checking
+npm run typecheck
+```
+
 ## Notes
 
 - Project repository: https://github.com/lsendel/zamaz-cursor.git
 - Comprehensive implementation plan available in IMPLEMENTATION_PLAN.md
-- Focus on accessibility, performance, and user experience
+- Focus on accessibility, performance, user experience, and security
 - Target: 10,000+ document handling with <200ms response times
+- Security-first development approach with comprehensive threat modeling

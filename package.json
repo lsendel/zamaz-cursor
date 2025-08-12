@@ -1,0 +1,50 @@
+{
+  "name": "interactive-knowledge-tree",
+  "version": "0.1.0",
+  "description": "An advanced web application providing an interactive, visual interface for managing and exploring knowledge documents in RAG systems",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "test:e2e": "npm run test:e2e --workspace=packages/frontend",
+    "lint": "npm run lint --workspaces --if-present",
+    "lint:security": "npm audit && npm run lint:security --workspaces --if-present",
+    "format": "npm run format --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "clean": "rm -rf node_modules packages/*/node_modules packages/*/dist",
+    "postinstall": "husky install"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-security": "^1.7.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.3.3"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lsendel/zamaz-cursor.git"
+  },
+  "author": "Luis Diaz Sendel",
+  "license": "MIT"
+}
