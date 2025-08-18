@@ -7,6 +7,9 @@ import SearchPage from './pages/SearchPage';
 import CollectionsPage from './pages/CollectionsPage';
 import SettingsPage from './pages/SettingsPage';
 import NotFoundPage from './pages/NotFoundPage';
+import { TreeView } from './components/Tree/TreeView';
+import { SearchView } from './components/Search/SearchView';
+import { ContextView } from './components/Context/ContextView';
 
 function App() {
   return (
@@ -14,8 +17,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="tree" element={<TreePage />} />
-          <Route path="search" element={<SearchPage />} />
+          <Route path="tree" element={<TreeView />} />
+          <Route path="search" element={<SearchView />} />
+          <Route path="context" element={<ContextView />} />
           <Route path="collections" element={<CollectionsPage />} />
           <Route path="settings" element={<SettingsPage />} />
           <Route path="*" element={<NotFoundPage />} />

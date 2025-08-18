@@ -1,5 +1,8 @@
 import { Router } from 'express';
 import { ApiResponse } from '@shared/types';
+import { documentRoutes } from './documents.js';
+import { searchRoutes } from './search.js';
+import { contextRoutes } from './context.js';
 
 const router = Router();
 
@@ -11,38 +14,25 @@ router.get('/', (req, res) => {
       message: 'Knowledge Tree API is running',
       version: '0.1.0',
       timestamp: new Date().toISOString(),
-      environment: process.env.NODE_ENV || 'development'
+      environment: process.env.NODE_ENV || 'development',
+      features: {
+        documents: 'Functional with mock data',
+        search: 'Functional with mock implementation',
+        context: 'Functional context management',
+        security: 'Enhanced security middleware active'
+      }
     }
   };
   
   res.json(response);
 });
+
+// Mount feature routes
+router.use('/documents', documentRoutes);
+router.use('/search', searchRoutes);
+router.use('/context', contextRoutes);
 
 // Placeholder routes for future implementation
-router.get('/documents', (req, res) => {
-  const response: ApiResponse = {
-    success: true,
-    data: {
-      message: 'Documents API endpoint - to be implemented in Phase 2',
-      phase: 'Core Tree Visualization (Week 3-4)'
-    }
-  };
-  
-  res.json(response);
-});
-
-router.get('/search', (req, res) => {
-  const response: ApiResponse = {
-    success: true,
-    data: {
-      message: 'Search API endpoint - to be implemented in Phase 3',
-      phase: 'Search and Filtering (Week 5-6)'
-    }
-  };
-  
-  res.json(response);
-});
-
 router.get('/collections', (req, res) => {
   const response: ApiResponse = {
     success: true,

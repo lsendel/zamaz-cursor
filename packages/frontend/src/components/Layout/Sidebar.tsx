@@ -1,10 +1,11 @@
 import { NavLink } from 'react-router-dom';
-import { Home, TreePine, Search, BookOpen, Settings } from 'lucide-react';
+import { Home, TreePine, Search, BookOpen, Settings, Brain } from 'lucide-react';
 
 const navigation = [
   { name: 'Home', href: '/', icon: Home },
   { name: 'Tree View', href: '/tree', icon: TreePine },
   { name: 'Search', href: '/search', icon: Search },
+  { name: 'Context', href: '/context', icon: Brain },
   { name: 'Collections', href: '/collections', icon: BookOpen },
   { name: 'Settings', href: '/settings', icon: Settings },
 ];

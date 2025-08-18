@@ -138,6 +138,15 @@ export interface ApiResponse<T = any> {
     message: string;
     details?: any;
   };
+  meta?: {
+    timestamp?: string;
+    total?: number;
+    limit?: number;
+    offset?: number;
+    query?: string;
+    filters?: any;
+    [key: string]: any;
+  };
   pagination?: {
     page: number;
     limit: number;
